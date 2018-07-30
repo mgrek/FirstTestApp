@@ -1,0 +1,211 @@
+2018-07-25 00:49:34 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Схема "INFORMATION_SCHEMAS" не найдена
+Schema "INFORMATION_SCHEMAS" not found; SQL statement:
+select count(*) from INFORMATION_SCHEMAS.TABLES where TABLE_NAME='USER' [90079-197]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:357)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.command.Parser.getSchema(Parser.java:701)
+	at org.h2.command.Parser.getSchema(Parser.java:707)
+	at org.h2.command.Parser.readTableFilter(Parser.java:1388)
+	at org.h2.command.Parser.parseSelectSimpleFromPart(Parser.java:2138)
+	at org.h2.command.Parser.parseSelectSimple(Parser.java:2287)
+	at org.h2.command.Parser.parseSelectSub(Parser.java:2133)
+	at org.h2.command.Parser.parseSelectUnion(Parser.java:1946)
+	at org.h2.command.Parser.parseSelect(Parser.java:1919)
+	at org.h2.command.Parser.parsePrepared(Parser.java:463)
+	at org.h2.command.Parser.parse(Parser.java:335)
+	at org.h2.command.Parser.parse(Parser.java:307)
+	at org.h2.command.Parser.prepareCommand(Parser.java:278)
+	at org.h2.engine.Session.prepareLocal(Session.java:611)
+	at org.h2.engine.Session.prepareCommand(Session.java:549)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1247)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:78)
+	at com.server.HashTableDatabase.countTable(HashTableDatabase.java:74)
+	at com.server.HashTableDatabase.createTable(HashTableDatabase.java:48)
+	at com.main.MainF.main(MainF.java:20)
+2018-07-25 00:49:34 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Таблица "USER" уже существует
+Table "USER" already exists; SQL statement:
+CREATE TABLE USER (ID INT, NAME VARCHAR(50)) [42101-197]
+2018-07-25 00:50:35 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Таблица "TABLES" не найдена
+Table "TABLES" not found; SQL statement:
+select count(*) from TABLES where TABLE_NAME='USER' [42102-197]
+2018-07-25 00:50:35 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Таблица "USER" уже существует
+Table "USER" already exists; SQL statement:
+CREATE TABLE USER (ID INT, NAME VARCHAR(50)) [42101-197]
+2018-07-25 22:16:23 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Синтаксическая ошибка в выражении SQL "INSERT INTO ([*]ID, NAME) VALUES (?, ?)"; ожидалось "identifier"
+Syntax error in SQL statement "INSERT INTO ([*]ID, NAME) VALUES (?, ?)"; expected "identifier"; SQL statement:
+INSERT INTO (ID, NAME) VALUES (?, ?) [42001-197]
+2018-07-26 01:05:07 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Значение слишком длинное для поля "NAME VARCHAR(50)": "'Alex Gaudino & Jason Rooney--I Love Rock ''N'' Roll.VOB' (53)"
+Value too long for column "NAME VARCHAR(50)": "'Alex Gaudino & Jason Rooney--I Love Rock ''N'' Roll.VOB' (53)"; SQL statement:
+INSERT INTO FILE (ID, NAME, PATH, SIZE) VALUES (?, ?, ?, ?) [22001-197]
+2018-07-26 01:05:07 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Значение слишком длинное для поля "NAME VARCHAR(50)": "'Alex Gaudino feat. Crystal Waters--Destination Calabria.avi' (59)"
+Value too long for column "NAME VARCHAR(50)": "'Alex Gaudino feat. Crystal Waters--Destination Calabria.avi' (59)"; SQL statement:
+INSERT INTO FILE (ID, NAME, PATH, SIZE) VALUES (?, ?, ?, ?) [22001-197]
+2018-07-26 01:05:07 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Значение слишком длинное для поля "NAME VARCHAR(50)": "'Armin Van Buuren feat. Sharon Den Adel - In And Out Of Love.avi' (63)"
+Value too long for column "NAME VARCHAR(50)": "'Armin Van Buuren feat. Sharon Den Adel - In And Out Of Love.avi' (63)"; SQL statement:
+INSERT INTO FILE (ID, NAME, PATH, SIZE) VALUES (?, ?, ?, ?) [22001-197]
+2018-07-26 01:05:07 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Значение слишком длинное для поля "NAME VARCHAR(50)": "'Gorillaz - Stylo (Feat. Bobby Womack & Mos Def).mp4' (51)"
+Value too long for column "NAME VARCHAR(50)": "'Gorillaz - Stylo (Feat. Bobby Womack & Mos Def).mp4' (51)"; SQL statement:
+INSERT INTO FILE (ID, NAME, PATH, SIZE) VALUES (?, ?, ?, ?) [22001-197]
+2018-07-26 01:05:07 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Numeric value out of range: "5865645721" in column "SIZE"; SQL statement:
+INSERT INTO FILE (ID, NAME, PATH, SIZE) VALUES (?, ?, ?, ?) -- (?1, ?2, ?3, ?4) [22004-197]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:357)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.value.Value.convertToInt(Value.java:1214)
+	at org.h2.value.Value.convertTo(Value.java:727)
+	at org.h2.table.Column.convert(Column.java:177)
+	at org.h2.command.dml.Insert.insertRows(Insert.java:166)
+	at org.h2.command.dml.Insert.update(Insert.java:134)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:102)
+	at org.h2.command.Command.executeUpdate(Command.java:261)
+	at org.h2.jdbc.JdbcPreparedStatement.execute(JdbcPreparedStatement.java:249)
+	at com.server.HashTableDatabase.insertTable(HashTableDatabase.java:96)
+	at com.main.MainF.fileList(MainF.java:53)
+	at com.main.MainF.fileList(MainF.java:56)
+	at com.main.MainF.main(MainF.java:26)
+2018-07-26 01:05:07 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Значение слишком длинное для поля "NAME VARCHAR(50)": "'Hurts - All I Want for Christmas is New Year''s Day.avi' (54)"
+Value too long for column "NAME VARCHAR(50)": "'Hurts - All I Want for Christmas is New Year''s Day.avi' (54)"; SQL statement:
+INSERT INTO FILE (ID, NAME, PATH, SIZE) VALUES (?, ?, ?, ?) [22001-197]
+2018-07-26 01:05:07 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Numeric value out of range: "3680452952" in column "SIZE"; SQL statement:
+INSERT INTO FILE (ID, NAME, PATH, SIZE) VALUES (?, ?, ?, ?) -- (?1, ?2, ?3, ?4) [22004-197]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:357)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.value.Value.convertToInt(Value.java:1214)
+	at org.h2.value.Value.convertTo(Value.java:727)
+	at org.h2.table.Column.convert(Column.java:177)
+	at org.h2.command.dml.Insert.insertRows(Insert.java:166)
+	at org.h2.command.dml.Insert.update(Insert.java:134)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:102)
+	at org.h2.command.Command.executeUpdate(Command.java:261)
+	at org.h2.jdbc.JdbcPreparedStatement.execute(JdbcPreparedStatement.java:249)
+	at com.server.HashTableDatabase.insertTable(HashTableDatabase.java:96)
+	at com.main.MainF.fileList(MainF.java:53)
+	at com.main.MainF.fileList(MainF.java:56)
+	at com.main.MainF.fileList(MainF.java:56)
+	at com.main.MainF.main(MainF.java:26)
+2018-07-26 01:05:07 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Значение слишком длинное для поля "NAME VARCHAR(50)": "'Linkin park - Somewhere I Belong (live at Milton Keynes) (Road To Revolution DVD bonus).avi' (91)"
+Value too long for column "NAME VARCHAR(50)": "'Linkin park - Somewhere I Belong (live at Milton Keynes) (Road To Revolution DVD bonus).avi' (91)"; SQL statement:
+INSERT INTO FILE (ID, NAME, PATH, SIZE) VALUES (?, ?, ?, ?) [22001-197]
+2018-07-26 01:05:07 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Numeric value out of range: "2216329368" in column "SIZE"; SQL statement:
+INSERT INTO FILE (ID, NAME, PATH, SIZE) VALUES (?, ?, ?, ?) -- (?1, ?2, ?3, ?4) [22004-197]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:357)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.value.Value.convertToInt(Value.java:1214)
+	at org.h2.value.Value.convertTo(Value.java:727)
+	at org.h2.table.Column.convert(Column.java:177)
+	at org.h2.command.dml.Insert.insertRows(Insert.java:166)
+	at org.h2.command.dml.Insert.update(Insert.java:134)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:102)
+	at org.h2.command.Command.executeUpdate(Command.java:261)
+	at org.h2.jdbc.JdbcPreparedStatement.execute(JdbcPreparedStatement.java:249)
+	at com.server.HashTableDatabase.insertTable(HashTableDatabase.java:96)
+	at com.main.MainF.fileList(MainF.java:53)
+	at com.main.MainF.fileList(MainF.java:56)
+	at com.main.MainF.fileList(MainF.java:56)
+	at com.main.MainF.fileList(MainF.java:56)
+	at com.main.MainF.main(MainF.java:26)
+2018-07-26 01:05:07 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Значение слишком длинное для поля "NAME VARCHAR(50)": "'Linkin Park - In The End (Live Earth Tokyo 07-07-2007-HDTV-1080i).ts' (68)"
+Value too long for column "NAME VARCHAR(50)": "'Linkin Park - In The End (Live Earth Tokyo 07-07-2007-HDTV-1080i).ts' (68)"; SQL statement:
+INSERT INTO FILE (ID, NAME, PATH, SIZE) VALUES (?, ?, ?, ?) [22001-197]
+2018-07-26 01:05:07 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Numeric value out of range: "2154262484" in column "SIZE"; SQL statement:
+INSERT INTO FILE (ID, NAME, PATH, SIZE) VALUES (?, ?, ?, ?) -- (?1, ?2, ?3, ?4) [22004-197]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:357)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.value.Value.convertToInt(Value.java:1214)
+	at org.h2.value.Value.convertTo(Value.java:727)
+	at org.h2.table.Column.convert(Column.java:177)
+	at org.h2.command.dml.Insert.insertRows(Insert.java:166)
+	at org.h2.command.dml.Insert.update(Insert.java:134)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:102)
+	at org.h2.command.Command.executeUpdate(Command.java:261)
+	at org.h2.jdbc.JdbcPreparedStatement.execute(JdbcPreparedStatement.java:249)
+	at com.server.HashTableDatabase.insertTable(HashTableDatabase.java:96)
+	at com.main.MainF.fileList(MainF.java:53)
+	at com.main.MainF.fileList(MainF.java:56)
+	at com.main.MainF.fileList(MainF.java:56)
+	at com.main.MainF.fileList(MainF.java:56)
+	at com.main.MainF.main(MainF.java:26)
+2018-07-26 01:05:07 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Значение слишком длинное для поля "NAME VARCHAR(50)": "'Linkin Park - What I''ve Done (Live Earth Tokyo 07-07-2007-HDTV-1080i).ts' (72)"
+Value too long for column "NAME VARCHAR(50)": "'Linkin Park - What I''ve Done (Live Earth Tokyo 07-07-2007-HDTV-1080i).ts' (72)"; SQL statement:
+INSERT INTO FILE (ID, NAME, PATH, SIZE) VALUES (?, ?, ?, ?) [22001-197]
+2018-07-26 01:05:07 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Numeric value out of range: "4699729164" in column "SIZE"; SQL statement:
+INSERT INTO FILE (ID, NAME, PATH, SIZE) VALUES (?, ?, ?, ?) -- (?1, ?2, ?3, ?4) [22004-197]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:357)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.value.Value.convertToInt(Value.java:1214)
+	at org.h2.value.Value.convertTo(Value.java:727)
+	at org.h2.table.Column.convert(Column.java:177)
+	at org.h2.command.dml.Insert.insertRows(Insert.java:166)
+	at org.h2.command.dml.Insert.update(Insert.java:134)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:102)
+	at org.h2.command.Command.executeUpdate(Command.java:261)
+	at org.h2.jdbc.JdbcPreparedStatement.execute(JdbcPreparedStatement.java:249)
+	at com.server.HashTableDatabase.insertTable(HashTableDatabase.java:96)
+	at com.main.MainF.fileList(MainF.java:53)
+	at com.main.MainF.fileList(MainF.java:56)
+	at com.main.MainF.fileList(MainF.java:56)
+	at com.main.MainF.fileList(MainF.java:56)
+	at com.main.MainF.main(MainF.java:26)
+2018-07-26 01:05:07 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Значение слишком длинное для поля "NAME VARCHAR(50)": "'Ludovico Einaudi - Elements Live La Maison de la Radio 2015.mp4' (63)"
+Value too long for column "NAME VARCHAR(50)": "'Ludovico Einaudi - Elements Live La Maison de la Radio 2015.mp4' (63)"; SQL statement:
+INSERT INTO FILE (ID, NAME, PATH, SIZE) VALUES (?, ?, ?, ?) [22001-197]
+2018-07-26 01:05:07 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Значение слишком длинное для поля "NAME VARCHAR(50)": "'Muse - Neutron Star Collision (Love Is Forever).avi' (51)"
+Value too long for column "NAME VARCHAR(50)": "'Muse - Neutron Star Collision (Love Is Forever).avi' (51)"; SQL statement:
+INSERT INTO FILE (ID, NAME, PATH, SIZE) VALUES (?, ?, ?, ?) [22001-197]
+2018-07-26 01:05:07 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Значение слишком длинное для поля "NAME VARCHAR(50)": "'muse-supermassive_black_hole_and_starlight-isle_of_wight-20070000-hdtv_source-ch1.ts' (84)"
+Value too long for column "NAME VARCHAR(50)": "'muse-supermassive_black_hole_and_starlight-isle_of_wight-20070000-hdtv_source-ch1.ts' (84)"; SQL statement:
+INSERT INTO FILE (ID, NAME, PATH, SIZE) VALUES (?, ?, ?, ?) [22001-197]
+2018-07-26 01:05:07 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Значение слишком длинное для поля "NAME VARCHAR(50)": "'Nickelback - Burn It To The Ground (Live @Muchmusic Video Awards).avi' (69)"
+Value too long for column "NAME VARCHAR(50)": "'Nickelback - Burn It To The Ground (Live @Muchmusic Video Awards).avi' (69)"; SQL statement:
+INSERT INTO FILE (ID, NAME, PATH, SIZE) VALUES (?, ?, ?, ?) [22001-197]
+2018-07-26 01:05:07 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Значение слишком длинное для поля "NAME VARCHAR(50)": "'Pendulum - Watercolour (Friday Night With Jonathan Ross 05-28-10).avi' (69)"
+Value too long for column "NAME VARCHAR(50)": "'Pendulum - Watercolour (Friday Night With Jonathan Ross 05-28-10).avi' (69)"; SQL statement:
+INSERT INTO FILE (ID, NAME, PATH, SIZE) VALUES (?, ?, ?, ?) [22001-197]
+2018-07-26 01:05:07 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Значение слишком длинное для поля "NAME VARCHAR(50)": "'Pink Floyd - Another Brick In The Wall (part II).avi' (52)"
+Value too long for column "NAME VARCHAR(50)": "'Pink Floyd - Another Brick In The Wall (part II).avi' (52)"; SQL statement:
+INSERT INTO FILE (ID, NAME, PATH, SIZE) VALUES (?, ?, ?, ?) [22001-197]
+2018-07-26 01:05:07 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Numeric value out of range: "3415790288" in column "SIZE"; SQL statement:
+INSERT INTO FILE (ID, NAME, PATH, SIZE) VALUES (?, ?, ?, ?) -- (?1, ?2, ?3, ?4) [22004-197]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:357)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.value.Value.convertToInt(Value.java:1214)
+	at org.h2.value.Value.convertTo(Value.java:727)
+	at org.h2.table.Column.convert(Column.java:177)
+	at org.h2.command.dml.Insert.insertRows(Insert.java:166)
+	at org.h2.command.dml.Insert.update(Insert.java:134)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:102)
+	at org.h2.command.Command.executeUpdate(Command.java:261)
+	at org.h2.jdbc.JdbcPreparedStatement.execute(JdbcPreparedStatement.java:249)
+	at com.server.HashTableDatabase.insertTable(HashTableDatabase.java:96)
+	at com.main.MainF.fileList(MainF.java:53)
+	at com.main.MainF.fileList(MainF.java:56)
+	at com.main.MainF.main(MainF.java:26)
+2018-07-26 01:05:07 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Значение слишком длинное для поля "NAME VARCHAR(50)": "'System Of A Down - Live At Rock Am Ring (2011-06-05).avi' (56)"
+Value too long for column "NAME VARCHAR(50)": "'System Of A Down - Live At Rock Am Ring (2011-06-05).avi' (56)"; SQL statement:
+INSERT INTO FILE (ID, NAME, PATH, SIZE) VALUES (?, ?, ?, ?) [22001-197]
